@@ -16,6 +16,9 @@ const HelpModal = ({ isOpen, onClose }) => {
       className="help-modal-content"
       overlayClassName="help-modal-overlay"
     >
+      <div className="help-footer">
+        <button onClick={onClose}>Close</button>
+      </div>
       <h2>Residency Rank Order List Builder - Help</h2>
       <div className="help-body">
         <ul>
@@ -46,7 +49,7 @@ const HelpModal = ({ isOpen, onClose }) => {
                 <em>Bar Chart with 95% CI</em>: Shows weighted scores with error bars.
               </li>
               <li>
-                <em>Monte Carlo Simulation</em>: Generates a histogram from random draws around each program’s inputs, showing the distribution of weighted scores.
+                <em>Monte Carlo Simulation</em>: Generates a histogram from random draws (n=10,000) around each program’s inputs, showing the distribution of weighted scores.
               </li>
             </ul>
           </li>
@@ -56,9 +59,6 @@ const HelpModal = ({ isOpen, onClose }) => {
             Use “Export Session” to download your data as JSON, or “Import Session” to load a saved session.
           </li>
         </ul>
-      </div>
-      <div className="help-footer">
-        <button onClick={onClose}>Close</button>
       </div>
     </Modal>
   );
