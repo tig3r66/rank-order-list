@@ -1,7 +1,7 @@
 /* src/components/HelpModal.css */
 
 .help-modal-overlay {
-  background-color: rgba(0,0,0,0.4) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
 }
 
 .help-modal-content {
@@ -23,6 +23,7 @@
 
 .help-body {
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .help-modal-content h2 {
@@ -51,4 +52,12 @@
 .help-footer {
   text-align: right;
   margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .help-modal-content {
+    width: 90% !important;
+    max-height: 80vh;
+    padding: 1rem;
+  }
 }
