@@ -10,23 +10,29 @@ import HelpModal from './components/HelpModal';
 import './App.css';
 
 const initialCriteria = [
-  { id: 'supportSystems', label: 'Support Systems & Family', category: 'Personal & Lifestyle Factors', weight: '1.0' },
-  { id: 'localCulture', label: 'Local Culture & City Life', category: 'Personal & Lifestyle Factors', weight: '1.0' },
-  { id: 'weather', label: 'Weather & Outdoor Activities', category: 'Personal & Lifestyle Factors', weight: '1.0' },
-  { id: 'costOfLiving', label: 'Cost of Living', category: 'Personal & Lifestyle Factors', weight: '1.0' },
-  { id: 'commute', label: 'Commute & Transportation', category: 'Personal & Lifestyle Factors', weight: '1.0' },
-  { id: 'residentHappiness', label: 'Resident Happiness', category: 'Resident Experience & Well-Being', weight: '1.0' },
-  { id: 'collegiality', label: 'Collegiality', category: 'Resident Experience & Well-Being', weight: '1.0' },
-  { id: 'callSchedule', label: 'Call Schedule & Workload', category: 'Resident Experience & Well-Being', weight: '1.0' },
-  { id: 'workLifeBalance', label: 'Work-Life Balance & Burnout', category: 'Resident Experience & Well-Being', weight: '1.0' },
-  { id: 'mentorship', label: 'Mentorship & Networking', category: 'Resident Experience & Well-Being', weight: '1.0' },
-  { id: 'caseVolume', label: 'Case Volume', category: 'Training & Clinical Experience', weight: '1.0' },
-  { id: 'caseComplexity', label: 'Case Complexity/Diversity', category: 'Training & Clinical Experience', weight: '1.0' },
-  { id: 'operativeExposure', label: 'Operative Exposure', category: 'Training & Clinical Experience', weight: '1.0' },
-  { id: 'programReputation', label: 'Program Reputation', category: 'Career Outcomes & Prestige', weight: '1.0' },
-  { id: 'jobOpportunities', label: 'Job Opportunities', category: 'Career Outcomes & Prestige', weight: '1.0' },
-  { id: 'gutFeel', label: 'Gut Feeling', category: 'Gut Feeling', weight: '1.0' },
-];
+  { "id": "supportSystems", "label": "Support Systems & Family", "category": "Personal & Lifestyle Factors", "weight": "2" },
+  { "id": "localCulture", "label": "Local Culture & City Life", "category": "Personal & Lifestyle Factors", "weight": "1" },
+  { "id": "weather", "label": "Weather & Outdoor Activities", "category": "Personal & Lifestyle Factors", "weight": "1" },
+  { "id": "costOfLiving", "label": "Cost of Living", "category": "Personal & Lifestyle Factors", "weight": "2" },
+  { "id": "commute", "label": "Commute & Transportation", "category": "Personal & Lifestyle Factors", "weight": "1" },
+
+  { "id": "residentHappiness", "label": "Resident Happiness", "category": "Resident Experience & Well-Being", "weight": "3" },
+  { "id": "collegiality", "label": "Collegiality", "category": "Resident Experience & Well-Being", "weight": "2" },
+  { "id": "callSchedule", "label": "Call Schedule & Workload", "category": "Resident Experience & Well-Being", "weight": "3" },
+  { "id": "workLifeBalance", "label": "Work-Life Balance & Burnout", "category": "Resident Experience & Well-Being", "weight": "3" },
+  { "id": "mentorship", "label": "Mentorship & Networking", "category": "Resident Experience & Well-Being", "weight": "3" },
+
+  { "id": "caseVolume", "label": "Case Volume", "category": "Training & Clinical Experience", "weight": "4" },
+  { "id": "caseComplexity", "label": "Case Complexity/Diversity", "category": "Training & Clinical Experience", "weight": "4" },
+  { "id": "operativeExposure", "label": "Operative Exposure", "category": "Training & Clinical Experience", "weight": "4" },
+  { "id": "uniqueOpportunities", "label": "Unique Program Opportunities", "category": "Training & Clinical Experience", "weight": "2" },
+
+  { "id": "programReputation", "label": "Program Reputation", "category": "Career Outcomes & Prestige", "weight": "3" },
+  { "id": "jobOpportunities", "label": "Job Opportunities", "category": "Career Outcomes & Prestige", "weight": "3" },
+  { "id": "fellowshipOpportunities", "label": "Fellowship Opportunities", "category": "Career Outcomes & Prestige", "weight": "3" },
+
+  { "id": "gutFeel", "label": "Gut Feeling", "category": "Gut Feeling", "weight": "3" }
+]
 
 const initialPrograms = [
   { id: 'program1', name: 'General Hospital', notes: '', scores: {} },
