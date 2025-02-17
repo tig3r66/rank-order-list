@@ -1,4 +1,3 @@
-// src/components/CriteriaEditor.js
 import React, { useState, useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import './CriteriaEditor.css';
@@ -38,25 +37,35 @@ function CriteriaEditor({
     return Object.entries(sums).map(([cat, val]) => ({ name: cat, value: val }));
   }, [criteria]);
 
+  // No more "id" in user input. We auto-generate it.
   const [newCriterion, setNewCriterion] = useState({
-    id: '', label: '', category: '', weight: '1'
+    label: '',
+    category: '',
+    weight: '1.0'
   });
 
   const handleAddCriterion = () => {
-    if (newCriterion.id && newCriterion.label && newCriterion.category) {
-      addCriterion({ ...newCriterion });
-      setNewCriterion({ id: '', label: '', category: '', weight: '1' });
+    if (newCriterion.label && newCriterion.category) {
+      // Generate an ID behind the scenes
+      const generatedId = 'crit_' + Date.now();
+      addCriterion({
+        id: generatedId,
+        label: newCriterion.label,
+        category: newCriterion.category,
+        weight: newCriterion.weight
+      });
+      // Reset
+      setNewCriterion({ label: '', category: '', weight: '1.0' });
     } else {
-      alert('Please fill in all fields.');
+      alert('Please fill in both label and category.');
     }
   };
 
-  // Custom label: draws lines to the slice (labelLine={true}) and places value & percent on separate lines.
+  // Example label rendering
   const renderCustomLabel = (props) => {
     const { cx, cy, midAngle, outerRadius, percent, value } = props;
     const RADIAN = Math.PI / 180;
-    // Place label slightly further from the slice
-    const radius = outerRadius + 20;
+    const radius = outerRadius + 35;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -69,14 +78,8 @@ function CriteriaEditor({
         dominantBaseline="central"
         fontSize={12}
       >
-        {/* First line: numeric total */}
-        <tspan x={x} dy="0">
-          {value}
-        </tspan>
-        {/* Second line: percentage */}
-        <tspan x={x} dy="1.2em">
-          {(percent * 100).toFixed(1)}%
-        </tspan>
+        <tspan x={x} dy="0">{value}</tspan>
+        <tspan x={x} dy="1.2em">{(percent * 100).toFixed(1)}%</tspan>
       </text>
     );
   };
@@ -101,8 +104,8 @@ function CriteriaEditor({
                   outerRadius={80}
                   isAnimationActive={true}
                   animationDuration={800}
-                  labelLine={true}           // draw lines to the slice
-                  label={renderCustomLabel}  // place label outside
+                  labelLine={true}
+                  label={renderCustomLabel}
                 >
                   {pieData.map((entry, idx) => (
                     <Cell
@@ -148,12 +151,7 @@ function CriteriaEditor({
           <div className="new-criterion">
             <h4>Add New Criterion</h4>
             <div className="new-criterion-fields">
-              <input
-                type="text"
-                placeholder="ID"
-                value={newCriterion.id}
-                onChange={(e) => setNewCriterion({ ...newCriterion, id: e.target.value })}
-              />
+              {/* We removed the ID field. Just label, category, weight. */}
               <input
                 type="text"
                 placeholder="Label"
@@ -174,8 +172,8 @@ function CriteriaEditor({
                 onFocus={(e) => e.target.select()}
                 className="weight-input"
               />
+              <button onClick={handleAddCriterion}>Add Criterion</button>
             </div>
-            <button onClick={handleAddCriterion}>Add Criterion</button>
           </div>
         </>
       )}
