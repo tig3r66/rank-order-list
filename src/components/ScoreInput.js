@@ -12,6 +12,17 @@ const ScoreInput = ({
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
+  // A small helper to handle numeric-only logic + warnings
+  const handleScoreChange = (programId, criterionId, val) => {
+    // If not empty and not a valid number, show warning
+    if (val !== '' && isNaN(Number(val))) {
+      alert('Please enter numeric values only.');
+      return;
+    }
+    // Otherwise update the score
+    updateProgramScore(programId, criterionId, val);
+  };
+
   return (
     <div className="score-input">
       <div className="header-row">
@@ -39,9 +50,9 @@ const ScoreInput = ({
                     {programs.map(prog => (
                       <td key={prog.id}>
                         <input
-                          type="text"
+                          type="number"
                           value={prog.scores[crit.id] || '0'}
-                          onChange={(e) => updateProgramScore(prog.id, crit.id, e.target.value)}
+                          onChange={(e) => handleScoreChange(prog.id, crit.id, e.target.value)}
                           onFocus={(e) => e.target.select()}
                         />
                       </td>

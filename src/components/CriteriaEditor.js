@@ -1,3 +1,5 @@
+// src/components/CriteriaEditor.js
+
 import React, { useState, useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import './CriteriaEditor.css';
@@ -37,7 +39,7 @@ function CriteriaEditor({
     return Object.entries(sums).map(([cat, val]) => ({ name: cat, value: val }));
   }, [criteria]);
 
-  // No more "id" in user input. We auto-generate it.
+  // For adding new criteria
   const [newCriterion, setNewCriterion] = useState({
     label: '',
     category: '',
@@ -45,20 +47,32 @@ function CriteriaEditor({
   });
 
   const handleAddCriterion = () => {
-    if (newCriterion.label && newCriterion.category) {
-      // Generate an ID behind the scenes
-      const generatedId = 'crit_' + Date.now();
-      addCriterion({
-        id: generatedId,
-        label: newCriterion.label,
-        category: newCriterion.category,
-        weight: newCriterion.weight
-      });
-      // Reset
-      setNewCriterion({ label: '', category: '', weight: '1.0' });
-    } else {
+    if (!newCriterion.label || !newCriterion.category) {
       alert('Please fill in both label and category.');
+      return;
     }
+    // Validate numeric weight
+    if (isNaN(Number(newCriterion.weight))) {
+      alert('Weight must be a numeric value.');
+      return;
+    }
+    const generatedId = 'crit_' + Date.now();
+    addCriterion({
+      id: generatedId,
+      label: newCriterion.label,
+      category: newCriterion.category,
+      weight: newCriterion.weight
+    });
+    setNewCriterion({ label: '', category: '', weight: '1.0' });
+  };
+
+  // For existing items, we do a numeric check in updateCriterionWeight
+  const handleWeightChange = (critId, val) => {
+    if (val !== '' && isNaN(Number(val))) {
+      alert('Please enter numeric values only.');
+      return;
+    }
+    updateCriterionWeight(critId, val);
   };
 
   // Example label rendering
@@ -133,9 +147,9 @@ function CriteriaEditor({
                       <div className="weight-row">
                         <span>Weight:</span>
                         <input
-                          type="text"
+                          type="number"
                           value={critItem.weight}
-                          onChange={(e) => updateCriterionWeight(critItem.id, e.target.value)}
+                          onChange={(e) => handleWeightChange(critItem.id, e.target.value)}
                           onFocus={(e) => e.target.select()}
                           className="weight-input"
                         />
@@ -151,7 +165,6 @@ function CriteriaEditor({
           <div className="new-criterion">
             <h4>Add New Criterion</h4>
             <div className="new-criterion-fields">
-              {/* We removed the ID field. Just label, category, weight. */}
               <input
                 type="text"
                 placeholder="Label"
@@ -165,7 +178,7 @@ function CriteriaEditor({
                 onChange={(e) => setNewCriterion({ ...newCriterion, category: e.target.value })}
               />
               <input
-                type="text"
+                type="number"
                 placeholder="Weight"
                 value={newCriterion.weight}
                 onChange={(e) => setNewCriterion({ ...newCriterion, weight: e.target.value })}
