@@ -31,6 +31,9 @@ const initialCriteria = [
   { "id": "jobOpportunities", "label": "Job Opportunities", "category": "Career Outcomes & Prestige", "weight": "3" },
   { "id": "fellowshipOpportunities", "label": "Fellowship Opportunities", "category": "Career Outcomes & Prestige", "weight": "3" },
 
+  { "id": "researchOpportunities", "label": "Research Opportunities", "category": "Other Opportunities", "weight": "2" },
+  { "id": "leadershipOpportunities", "label": "Leadership Opportunities", "category": "Other Opportunities", "weight": "1" },
+
   { "id": "gutFeel", "label": "Gut Feeling", "category": "Gut Feeling", "weight": "3" }
 ]
 
