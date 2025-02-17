@@ -65,7 +65,7 @@ function CriteriaEditor({
   const renderCustomLabel = (props) => {
     const { cx, cy, midAngle, outerRadius, percent, value } = props;
     const RADIAN = Math.PI / 180;
-    const radius = outerRadius + 35;
+    const radius = outerRadius + 30;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -95,13 +95,13 @@ function CriteriaEditor({
       {isOpen && (
         <>
           <div className="pie-chart-container">
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={375}>
               <PieChart>
                 <Pie
                   data={pieData}
                   dataKey="value"
                   nameKey="name"
-                  outerRadius={80}
+                  outerRadius={75}
                   isAnimationActive={true}
                   animationDuration={800}
                   labelLine={true}
