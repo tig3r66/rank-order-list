@@ -15,7 +15,7 @@ const Dashboard = ({ programsData }) => {
       </div>
 
       <div className="chart-section">
-        <h3>Monte Carlo Simulation (All Programs, Stacked)</h3>
+        <h3>Monte Carlo Simulation (All Programs, Stacked, n=10,000)</h3>
         <MonteCarloChart programsData={programsData} />
       </div>
     </div>
