@@ -19,12 +19,13 @@ const initialCriteria = [
   { id: 'collegiality', label: 'Collegiality', category: 'Resident Experience & Well-Being', weight: '1.0' },
   { id: 'callSchedule', label: 'Call Schedule & Workload', category: 'Resident Experience & Well-Being', weight: '1.0' },
   { id: 'workLifeBalance', label: 'Work-Life Balance & Burnout', category: 'Resident Experience & Well-Being', weight: '1.0' },
+  { id: 'mentorship', label: 'Resident Experience & Well-Being', category: 'Mentorship & Networking', weight: '1.0' },
   { id: 'caseVolume', label: 'Case Volume', category: 'Training & Clinical Experience', weight: '1.0' },
   { id: 'caseComplexity', label: 'Case Complexity/Diversity', category: 'Training & Clinical Experience', weight: '1.0' },
   { id: 'operativeExposure', label: 'Operative Exposure', category: 'Training & Clinical Experience', weight: '1.0' },
   { id: 'programReputation', label: 'Program Reputation', category: 'Career Outcomes & Prestige', weight: '1.0' },
   { id: 'jobOpportunities', label: 'Job Opportunities', category: 'Career Outcomes & Prestige', weight: '1.0' },
-  { id: 'mentorship', label: 'Mentorship', category: 'Mentorship & Networking', weight: '1.0' }
+  { id: 'gutFeel', label: 'Gut Feeling', category: 'Gut Feeling', weight: '1.0' },
 ];
 
 const initialPrograms = [
