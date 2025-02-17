@@ -1,0 +1,67 @@
+/* src/index.css (updated) */
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #7f7fee;
+  color: #fff;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  margin-left: 0.25rem;
+}
+
+button:hover {
+  background-color: #6b6be3;
+}
+
+input,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  padding: 0.4rem;
+  color: #222;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Make it mobile-friendly with media queries */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+  }
+  .top-bar-section {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+
+  .score-input,
+  .ranking,
+  .dashboard {
+    margin: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+
+  .score-input table,
+  .ranking table {
+    font-size: 0.85rem;
+  }
+}

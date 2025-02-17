@@ -1,0 +1,18 @@
+.top-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f5f7fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.top-bar-section {
+    flex: 1 1 50%;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

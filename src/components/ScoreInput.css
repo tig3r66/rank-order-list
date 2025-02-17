@@ -1,0 +1,66 @@
+/* src/components/ScoreInput.css */
+
+.score-input {
+  margin: 1rem;
+  background: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table input {
+  width: 3rem;
+  text-align: center;
+}
+
+.score-input-export {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Export button smaller */
+.score-input-export button {
+  width: auto;
+  align-self: flex-start;
+}
+
+.import-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.import-section input[type="file"] {
+  width: 220px;
+}

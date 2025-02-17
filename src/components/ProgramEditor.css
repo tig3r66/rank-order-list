@@ -1,0 +1,59 @@
+/* src/components/ProgramEditor.css */
+
+.program-editor {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.program-item {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Keep hospital name + remove on same line */
+.program-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.program-header-row input {
+  width: 200px;
+}
+
+.program-header-row button {
+  width: auto;
+}
+
+/* Make the notes area auto height, with a minimum so it doesn't overflow visually */
+.program-item textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  box-sizing: border-box; /* ensure padding is accounted for */
+  overflow: auto;
+}
+
+.new-program {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.new-program input {
+  flex: 1;
+}
